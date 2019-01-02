@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww20300\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ### Step 1 ###\
+\
+running_together_in_multiple_locations_git.py\
+\
+### DESCRIPTION ###\
+\
+##this script will create a .csv file with rows of parkrun event pairs (first column: Run A, Second Column: Run B) and all the parkrunners who ran at both runs (varying number of rows)\
+#the next row will match Run A with another run (first column: Run A, Second Column: Run C), and this pattern continues until all parkrun event pairs have been exhausted \
+\
+#this script requires 'full_data_set_ordered_by_date_friends_runs.csv'\
+\
+#this script outputs 'partners_at_multiple_locations_full.csv'\
+\
+##############################################################################################################################################\
+\
+### Step 2 ###\
+\
+networkx_different_location_runs_git.py\
+\
+### DESCRIPTION ###\
+\
+#this script will create a networkx graph of parkrunner pairs who have attended at least 8 different locations together\
+#this script will output a data set including all the runs from parkrunner pairs who have attended at least 8 different\
+#parkrun locations together and never ran within one minute of each other\
+\
+#this script requires 'partners_at_multiple_locations.csv' and 'full_data_set_ordered_by_date_friends_runs.csv'\
+\
+#this script outputs 'travel_partners_8locations.csv'\
+\
+##############################################################################################################################################\
+\
+### Step 3 ###\
+\
+travel_partner_model_git.R\
+\
+### DESCRIPTION ###\
+\
+#this script provides the main inferential analyses for Analysis B in the main text\
+\
+}

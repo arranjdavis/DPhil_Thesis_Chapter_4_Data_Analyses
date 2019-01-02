@@ -1,0 +1,167 @@
+### Step 1 ###
+
+parkrun_data_creation_step_1.py 
+
+### DESCRIPTION ###
+
+#this script takes the data from the HTML files downloaded from every parkrun location and convert it to a .csv file
+#These HTML files contain all the information in parkruns' online, publically available data set (as of 7 November 2015)
+
+#this script requires the HTML files from parkrun's online data base
+
+#this script outputs finishlist.csv
+
+##############################################################################################################################################
+
+### Step 2 ###
+
+parkrun_data_creation_step_2.py 
+
+### DESCRIPTION ###
+
+#this script adds the country data to each parkrun (country data was taken from the URLs of parkruns online data sets)
+
+#this script requires 'parkrunlocations.csv' (which is a .csv file containing the countries of all parkrun locations)
+
+#this script requires finishlist.csv
+
+#this script outputs (finishlistcountry_duplicate.csv and then) finishlistcountry.csv
+
+##############################################################################################################################################
+
+### Step 3 ###
+
+parkrun_data_creation_step_3.py 
+
+### DESCRIPTION ###
+
+#This script converts dates to a format that python can read
+
+#this script requires finishlistcountry.csv
+
+#this script outputs finishlistcountry2.csv
+
+##############################################################################################################################################
+
+### Step 4 ###
+
+parkrun_data_creation_step_4.py 
+
+### DESCRIPTION ###
+
+#this script creates seperate age and gender variables from the combined age and gender data in parkrun's online data sets
+
+#this script requires finishlistcountry2.csv
+
+#this script outputs finishlistcountry3.csv
+
+##############################################################################################################################################
+
+### Step 5 ###
+
+parkrun_data_creation_step_5.py
+
+### DESCRIPTION ###
+
+#this script converts parkrunners' run times to a consistent format that can be read by python (and R)
+
+#this script requires finishlistcountry3.csv
+
+#this script outputs finishlistcountry4.csv
+
+##############################################################################################################################################
+
+
+### Step 6 ###
+
+parkrun_data_creation_step_6.py
+
+### DESCRIPTION ###
+
+#this script removes all runs with the time of '00:59:59' as some parkruns labeled all runs over one hour as '00:59:59' (there are over 6000 observations 
+#of '00:59:59' and less than 80 observation of '00:59:58' and '01:00:00')
+
+#This script also gives parkrunners the correct 'total runs' (or, more specifically, the number of times a parkrunner appears in the data set)
+
+#this script requires 'finishlistcountry4.csv'
+
+#this script outputs 'full_data_set_time_errors_removed.csv'
+
+##############################################################################################################################################
+
+### Step 7 ###
+
+parkrun_data_creation_step_7.py
+
+### DESCRIPTION ###
+
+#This script converts parkrunids to four character strings (Oxford87 to Oxford0087, for example) and then orders that data set by parkrunid
+
+#This script also makes Country the first column
+
+#this script requires 'full_data_set_time_errors_removed.csv'
+
+#this script outputs 'full_data_set_ordered.csv'
+
+##############################################################################################################################################
+
+### Step 8 ###
+
+parkrun_data_creation_step_8.py
+
+### DESCRIPTION ###
+
+#This script orders the runs by date, parkrunid, and then time
+
+#this script requires 'full_data_set_ordered.csv'
+
+#this script outputs 'full_data_set_ordered_by_date.csv'
+
+##############################################################################################################################################
+
+### Step 9 ###
+
+parkrun_data_creation_step_9a.py #cut-off for finishing partners 00:00:15
+parkrun_data_creation_step_9b.py #cut-off for finishing partners 00:01:00
+parkrun_data_creation_step_9c.py #cut-off for finishing partners 00:02:00
+parkrun_data_creation_step_9d.py #cut-off for finishing partners 00:03:00
+
+### DESCRIPTION ###
+
+#These scripts create the FPRS variable and the previous runs variable at different cut-offs
+
+#these scripts require 'full_data_set_ordered_by_date.csv'
+
+#these scripts output:
+
+#9a: 'full_data_set_ordered_by_date_friends_runs.csv' 
+#9b: 'full_data_set_ordered_by_date_friends_1min_runs.csv'
+#9c: 'full_data_set_ordered_by_date_friends_2min_runs.csv'
+#9d: 'full_data_set_ordered_by_date_friends_3min_runs.csv'
+
+##############################################################################################################################################
+
+### Step 10 ###
+
+parkrun_data_creation_step_10a.py #cut-off for finishing partners 00:00:15
+parkrun_data_creation_step_10b.py #cut-off for finishing partners 00:01:00
+parkrun_data_creation_step_10c.py #cut-off for finishing partners 00:02:00
+parkrun_data_creation_step_10d.py #cut-off for finishing partners 00:03:00
+
+### DESCRIPTION ###
+
+#These scripts create a variable which indicates whether or not parkrunners are running with a running partner for each cut-off (criteria for partner running is the same, but data sets are different)
+
+#these scripts require:
+
+#10a: 'full_data_set_ordered_by_date_friends_runs.csv' 
+#10b: 'full_data_set_ordered_by_date_friends_1min_runs.csv'
+#10c: 'full_data_set_ordered_by_date_friends_2min_runs.csv'
+#10d: 'full_data_set_ordered_by_date_friends_3min_runs.csv'
+
+#these scripts output:
+
+#10a: 'full_data_set_ordered_by_date_friends_runs_partners.csv' 
+#10b: 'full_data_set_ordered_by_date_friends_1min_runs_partners.csv'
+#10c: 'full_data_set_ordered_by_date_friends_2min_runs_partners.csv'
+#10d: 'full_data_set_ordered_by_date_friends_3min_runs_partners.csv'
